@@ -14,115 +14,417 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --navy-blue: #0a2540;
+            --pink-accent: #E83F8E;
+            --light-pink: #FFB8D1;
+            --dark-text: #2d3748;
+            --light-text: #f8f9fa;
+            --off-white: #f7fafc;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.7;
+            background-color: var(--off-white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy-blue);
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+        }
+        
+        .navy-bg {
+            background-color: var(--navy-blue);
+            color: var(--light-text);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('img/resources-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--light-pink);
+        }
+        
+        .breadcrumb-item.active {
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .resource-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: 100%;
+            background: white;
+            margin-bottom: 30px;
+            border: none;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-card h3 {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .resource-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--pink-accent);
+        }
+        
+        .img-container {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .text-primary {
+            color: var(--pink-accent) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--pink-accent);
+            border-color: var(--pink-accent);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #D12E7B;
+            border-color: #D12E7B;
+        }
+        
+        .resource-list {
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .resource-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+        
+        .resource-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--pink-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .resource-list li:nth-child(1)::before { content: '1'; }
+        .resource-list li:nth-child(2)::before { content: '2'; }
+        .resource-list li:nth-child(3)::before { content: '3'; }
+        .resource-list li:nth-child(4)::before { content: '4'; }
+        
+        .divider {
+            width: 70px;
+            height: 4px;
+            background: var(--pink-accent);
+            margin: 25px 0;
+            opacity: 0.8;
+        }
+        
+        .navbar {
+            background-color: var(--navy-blue) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand h2 {
+            font-size: 1.8rem;
+        }
+        
+        footer {
+            background-color: var(--navy-blue);
+            padding: 40px 0;
+        }
+        
+        footer a {
+            color: var(--light-pink) !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white !important;
+            text-decoration: underline;
+        }
+        
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--pink-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .resource-link {
+            display: block;
+            padding: 15px;
+            background-color: rgba(232, 63, 142, 0.1);
+            border-radius: 8px;
+            color: var(--navy-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .resource-link:hover {
+            background-color: rgba(232, 63, 142, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .resource-link i {
+            margin-right: 10px;
+            color: var(--pink-accent);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .resource-card {
+                padding: 20px;
+            }
+            
+            .resource-list li {
+                padding-left: 35px;
+                font-size: 1rem;
+            }
+            
+            .resource-list li::before {
+                width: 18px;
+                height: 18px;
+                top: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-             <h2>
-            <img src="img/KN LOGOV1.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
-            Knowledge Nest
-            </h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Our Services</a>
-                <a href="resources.html" class="nav-item nav-link" >Resources</a>
-                 
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="m-0 ms-2 text-white">
+                    <img src="img/KN LOGOV1.png" alt="Logo" style="height: 36px; margin-right: 12px;">
+                    Knowledge Nest
+                </h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-link px-3">Home</a>
+                    <a href="about.html" class="nav-link px-3">About Us</a>
+                    <a href="courses.html" class="nav-link px-3">Our Services</a>
+                    <a href="resources.html" class="nav-link active px-3">Resources</a>
+                    <a href="contact.html" class="nav-link px-3">Contact Us</a>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary ms-lg-3">Join Now</a>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
-    <!-- Navbar End -->
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <h1>Please follow these links to access these resources</h1>
-                <a href="https://docs.google.com/document/d/1kN7j21QtjVYuJ11Y3vG3Dnm60Tp0z8K5/edit?rtpof=true&sd=true#heading=h.ox7wujpf4r0d" class="nav-item nav-link">Parental Guide</a>
-                <a href="https://docs.google.com/document/d/1aNwlZZTn3iwyi1Vvsxq2BC4HNI56Kkca/edit" class="nav-item nav-link">Learning Services Booklet</a>
-                <a href="https://docs.google.com/document/d/1mcS8hsMht31RF5v4NRFYrXE5CkFXH7oC/edit" class="nav-item nav-link">Subject Booklet For Upper Secondary</a>
-                <a href="https://docs.google.com/document/d/1f25l8PupY4gO-1H3JIgfIuIOlOkgkvwn/edit" class="nav-item nav-link" >Subject Booklet For Lower Secondary</a>
-                 
-            </div>
 
-
-    <!-- Header Start -->
-    
-    <!-- Header End -->
-
-
-    <!-- Team Start -->
-    
-    <!-- Team End -->
-        
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                   
-                </div>
-            </div>
-        </div>
+    <!-- Header -->
+    <header class="page-header text-white">
         <div class="container">
-            <div class="copyright">
-                <div class="row">
+            <h1 class="display-4 mb-4">Learning Resources</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Resources</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Resources Section -->
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary">KNOWLEDGE TOOLS</h6>
+            <h2 class="mb-3">Essential Learning Materials</h2>
+            <div class="divider mx-auto"></div>
+            <p>Access our comprehensive collection of educational resources designed to support students, parents, and educators.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Parent & Student Guides</h3>
+                    <p>Our carefully curated guides help parents and students navigate the learning journey effectively:</p>
                     
+                    <a href="https://docs.google.com/document/d/1kN7j21QtjVYuJ11Y3vG3Dnm60Tp0z8K5/edit?rtpof=true&sd=true#heading=h.ox7wujpf4r0d" class="resource-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i> Parental Guide to Home Learning
+                    </a>
                     
+                    <a href="https://docs.google.com/document/d/1aNwlZZTn3iwyi1Vvsxq2BC4HNI56Kkca/edit" class="resource-link" target="_blank">
+                        <i class="fas fa-book"></i> Learning Services Booklet
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Subject-Specific Resources</h3>
+                    <p>Comprehensive subject booklets for different educational levels:</p>
+                    
+                    <a href="https://docs.google.com/document/d/1mcS8hsMht31RF5v4NRFYrXE5CkFXH7oC/edit" class="resource-link" target="_blank">
+                        <i class="fas fa-file-alt"></i> Upper Secondary Subject Booklet
+                    </a>
+                    
+                    <a href="https://docs.google.com/document/d/1f25l8PupY4gO-1H3JIgfIuIOlOkgkvwn/edit" class="resource-link" target="_blank">
+                        <i class="fas fa-file-alt"></i> Lower Secondary Subject Booklet
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Study Strategies</h3>
+                    <p>Resources to enhance learning effectiveness:</p>
+                    <ul class="resource-list">
+                        <li>Effective note-taking techniques</li>
+                        <li>Exam preparation strategies</li>
+                        <li>Time management for students</li>
+                        <li>Memory improvement methods</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Digital Learning Tools</h3>
+                    <p>Recommended platforms and applications:</p>
+                    <ul class="resource-list">
+                        <li>Interactive learning websites</li>
+                        <li>Educational apps for all ages</li>
+                        <li>Online research tools</li>
+                        <li>Productivity apps for students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Call to Action -->
+    <section class="navy-bg py-5">
+        <div class="container text-center">
+            <h2 class="text-white mb-4">Need Additional Resources?</h2>
+            <p class="text-white mb-4">Contact us for personalized recommendations based on your specific learning needs.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg px-5 py-3">Contact Our Team</a>
+        </div>
+    </section>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Knowledge Nest. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="about.html" class="me-3">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

@@ -14,608 +14,470 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --navy-blue: #0a2540;
+            --pink-accent: #E83F8E;
+            --light-pink: #FFB8D1;
+            --dark-text: #2d3748;
+            --light-text: #f8f9fa;
+            --off-white: #f7fafc;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.7;
+            background-color: var(--off-white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy-blue);
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+        }
+        
+        .navy-bg {
+            background-color: var(--navy-blue);
+            color: var(--light-text);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('img/services-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--light-pink);
+        }
+        
+        .breadcrumb-item.active {
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .service-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: 100%;
+            background: white;
+            margin-bottom: 30px;
+            border: none;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .service-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--pink-accent);
+        }
+        
+        .img-container {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .text-primary {
+            color: var(--pink-accent) !important;
+        }
+        
+        .btn-primary {
+            background-color: var(--pink-accent);
+            border-color: var(--pink-accent);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #D12E7B;
+            border-color: #D12E7B;
+        }
+        
+        .mission-list {
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .mission-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+        
+        .mission-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--pink-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .mission-list li:nth-child(1)::before { content: '1'; }
+        .mission-list li:nth-child(2)::before { content: '2'; }
+        .mission-list li:nth-child(3)::before { content: '3'; }
+        .mission-list li:nth-child(4)::before { content: '4'; }
+        .mission-list li:nth-child(5)::before { content: '5'; }
+        
+        .divider {
+            width: 70px;
+            height: 4px;
+            background: var(--pink-accent);
+            margin: 25px 0;
+            opacity: 0.8;
+        }
+        
+        .navbar {
+            background-color: var(--navy-blue) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand h2 {
+            font-size: 1.8rem;
+        }
+        
+        footer {
+            background-color: var(--navy-blue);
+            padding: 40px 0;
+        }
+        
+        footer a {
+            color: var(--light-pink) !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white !important;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .mission-list li {
+                padding-left: 35px;
+                font-size: 1rem;
+            }
+            
+            .mission-list li::before {
+                width: 18px;
+                height: 18px;
+                top: 8px;
+            }
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--pink-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .subject-badge {
+            display: inline-block;
+            background-color: rgba(232, 63, 142, 0.1);
+            color: var(--pink-accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2>
-            <img src="img/KN LOGOV1.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
-            Knowledge Nest
-            </h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-                <a href="courses.html" class="nav-item nav-link active">Our Services</a>
-                <a href="resources.html" class="nav-item nav-link">Resources</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="m-0 ms-2 text-white">
+                    <img src="img/KN LOGOV1.png" alt="Logo" style="height: 36px; margin-right: 12px;">
+                    Knowledge Nest
+                </h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-link px-3">Home</a>
+                    <a href="about.html" class="nav-link px-3">About Us</a>
+                    <a href="courses.html" class="nav-link active px-3">Our Services</a>
+                    <a href="resources.html" class="nav-link px-3">Resources</a>
+                    <a href="contact.html" class="nav-link px-3">Contact Us</a>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary ms-lg-3">Join Now</a>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
+    <!-- Header -->
+    <header class="page-header text-white">
+        <div class="container">
+            <h1 class="display-4 mb-4">Our Services</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Resources</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Our Services</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Our Services</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Resources</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Our Services</li>
-                        </ol>
-                    </nav>
+    <!-- Services Section -->
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary">WHAT WE OFFER</h6>
+            <h2 class="mb-3">Comprehensive Learning Solutions</h2>
+            <div class="divider mx-auto"></div>
+        </div>
+        
+        <!-- Academic Tutoring -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="img-container">
+                    <img src="img/academic_tutoring.jpeg" alt="Academic Tutoring" class="img-fluid">
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
-
-    <!-- Categories Start -->
-    
-    <!-- Categories Start -->
-
-
-    <!-- Courses Start -->
-    
-    <!-- Courses End -->
-<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                
-                <!-- Font Awesome CDN (place in <head> if not already included) -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-                <!-- Font Awesome (include in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    margin-right: 0.5rem;
-    color: #0d6efd; /* Bootstrap primary */
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color: #0d6efd;
-  }
-</style>
-
-
-<!-- Font Awesome (put in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  .section-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
-
-  .section-wrapper h1,
-  .section-wrapper h3 {
-    margin-bottom: 1rem;
-    color: #0d6efd;
-  }
-
-  .section-wrapper p {
-    margin-bottom: 1.5rem;
-  }
-
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    color: #0d6efd;
-    margin-right: 0.5rem;
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color: #0d6efd;
-    min-width: 1.2rem;
-    text-align: center;
-  }
-</style>
-
-<div class="section-wrapper">
-
-  <h1>Academic Tutoring</h1>
-
-  <p>
-    We offer structured and engaging academic support for students across various grades and subjects.<br>
-    Our tutors provide one-on-one or small group sessions, ensuring personalized attention to:
-  </p>
-
-  <ol class="custom-list">
-    <li><i class="fas fa-book-open"></i>Strengthen subject knowledge</li>
-    <li><i class="fas fa-brain"></i>Improve problem-solving skills</li>
-    <li><i class="fas fa-user-clock"></i>Develop effective study habits</li>
-    <li><i class="fas fa-lightbulb"></i>Enhance critical thinking and application-based learning</li>
-  </ol>
-
-  <h3>Curricula Offered</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-globe"></i>Cambridge International Curriculum</li>
-    <li><i class="fas fa-university"></i>International Baccalaureate</li>
-    <li><i class="fas fa-certificate"></i>Pearson Edexcel</li>
-    <li><i class="fas fa-lightbulb"></i>Competence-Based Learning</li>
-    <li><i class="fas fa-book-bible"></i>ACE (Accelerated Christian Education)</li>
-  </ol>
-
-  <h3>Subjects Covered</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-square-root-variable"></i>Mathematics</li>
-    <li><i class="fas fa-flask"></i>Science (Physics, Chemistry, Biology)</li>
-    <li><i class="fas fa-language"></i>English Language & Literature</li>
-    <li><i class="fas fa-users"></i>Social Studies & Humanities</li>
-    <li><i class="fas fa-desktop"></i>Computer Science & IT</li>
-    <li><i class="fas fa-chart-line"></i>Business & Economics</li>
-  </ol>
-
-</div>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                
-                <!-- Font Awesome (in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  .section-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
-
-  .section-wrapper h1,
-  .section-wrapper h3 {
-    margin-bottom: 1rem;
-    color: #0d6efd;
-  }
-
-  .section-wrapper p {
-    margin-bottom: 1.5rem;
-  }
-
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    color: #0d6efd;
-    margin-right: 0.5rem;
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color: #0d6efd;
-    min-width: 1.2rem;
-    text-align: center;
-  }
-</style>
-
-<div class="section-wrapper">
-
-  <h1>International Exam Preparation</h1>
-
-  <p>
-    We specialize in preparing students for internationally recognized examinations, including:
-  </p>
-
-  <ol class="custom-list">
-    <li><i class="fas fa-file-alt"></i>IGCSE, O-Level & A-Level</li>
-    <li><i class="fas fa-university"></i>SAT, ACT (for university admissions)</li>
-    <li><i class="fas fa-language"></i>IELTS, TOEFL (for English language proficiency)</li>
-    <li><i class="fas fa-graduation-cap"></i>GMAT, GRE (for graduate-level admissions)</li>
-  </ol>
-
-  <h3>Our Structured Approach Includes</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-clock"></i>Past paper practice & time management strategies</li>
-    <li><i class="fas fa-book-reader"></i>Comprehensive subject review</li>
-    <li><i class="fas fa-user-cog"></i>Personalized study plans</li>
-    <li><i class="fas fa-clipboard-check"></i>Mock exams & performance assessments</li>
-  </ol>
-
-</div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                
-                <!-- Font Awesome (include in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  .section-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
-
-  .section-wrapper h1,
-  .section-wrapper h3 {
-    margin-bottom: 1rem;
-    color: #0d6efd;
-  }
-
-  .section-wrapper p {
-    margin-bottom: 1.5rem;
-  }
-
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    color: #0d6efd;
-    margin-right: 0.5rem;
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color: #0d6efd;
-    min-width: 1.2rem;
-    text-align: center;
-  }
-</style>
-
-<div class="section-wrapper">
-
-  <h1>Skills Development</h1>
-
-  <p>
-    Beyond academics, we equip students with essential skills for success, such as:
-  </p>
-
-  <ol class="custom-list">
-    <li><i class="fas fa-microphone"></i>Public Speaking & Communication – Confidence-building for effective speaking</li>
-    <li><i class="fas fa-pen-nib"></i>Creative & Academic Writing – Enhancing writing skills for school and professional use</li>
-    <li><i class="fas fa-code"></i>Coding & Digital Literacy – Preparing students for a technology-driven world</li>
-    <li><i class="fas fa-puzzle-piece"></i>Critical Thinking & Problem-Solving – Developing analytical reasoning</li>
-    <li><i class="fas fa-user-tie"></i>Personal Development & Leadership – Building self-confidence and leadership abilities</li>
-  </ol>
-
-</div>
-
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                
-                
-                <!-- Font Awesome (include in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  .section-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
-
-  .section-wrapper h1,
-  .section-wrapper h3 {
-    margin-bottom: 1rem;
-    color: #0d6efd;
-  }
-
-  .section-wrapper p {
-    margin-bottom: 1.5rem;
-  }
-
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    color: #0d6efd;
-    margin-right: 0.5rem;
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color: #0d6efd;
-    min-width: 1.2rem;
-    text-align: center;
-    margin-top: 0.15rem;
-  }
-</style>
-
-<div class="section-wrapper">
-
-  <h1>Personalized Learning & Special Support</h1>
-
-  <h3>Customized Learning Plans</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-user-edit"></i>Customized Learning Plans for Slow & Advanced Learners</li>
-    <li><i class="fas fa-chalkboard-teacher"></i>Remedial Classes for struggling students to meet international benchmarks</li>
-    <li><i class="fas fa-star"></i>Gifted & Talented Programs for high achievers</li>
-  </ol>
-
-  <h3>Special Needs Education</h3>
-  <p>
-    At Knowledge Nest Tuition Center, we believe that every child deserves access to quality education, regardless of their learning challenges. Our Special Needs Education Program is designed to provide personalized support, inclusive teaching methods, and a nurturing environment for students with diverse learning abilities.
-  </p>
-
-  <h3>Our Approach to Special Needs Education</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-user-cog"></i>Individualized Learning Plans (ILP) – Tailor-made based on each student's strengths, pace, and abilities</li>
-    <li><i class="fas fa-brain"></i>Specialized Teaching Strategies – Multi-sensory methods, adaptive tech, hands-on activities</li>
-    <li><i class="fas fa-users-cog"></i>Qualified & Trained Educators – Special education teachers, therapists, and learning assistants</li>
-    <li><i class="fas fa-hand-holding-heart"></i>Inclusive & Supportive Environment – A safe and motivating space for learning at each student’s pace</li>
-  </ol>
-
-  <h3>Who We Support</h3>
-  <ol class="custom-list">
-    <li><i class="fas fa-book-reader"></i>Dyslexia & Reading Difficulties – Customized literacy programs for reading, writing, comprehension</li>
-    <li><i class="fas fa-bolt"></i>ADHD & Attention Difficulties – Structured lessons with engaging activities</li>
-    <li><i class="fas fa-puzzle-piece"></i>Autism Spectrum Disorder (ASD) – Individualized approaches for learning and social skills</li>
-    <li><i class="fas fa-comments"></i>Speech & Language Delays – Programs led by trained speech therapists</li>
-    <li><i class="fas fa-heartbeat"></i>Down Syndrome & Cognitive Disabilities – Supportive teaching with life and academic skills</li>
-    <li><i class="fas fa-head-side-virus"></i>Sensory Processing Disorders – Adaptive learning for comfort and comprehension</li>
-  </ol>
-
-</div>
-
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="text-center">
-                
-                <!-- Font Awesome (include in <head> if not already) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  .section-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-  }
-
-  .section-wrapper h1,
-  .section-wrapper h3 {
-    margin-bottom: 1rem;
-    color:rgb(255, 0, 255);
-  }
-
-  .section-wrapper p {
-    margin-bottom: 1.5rem;
-  }
-
-  ol.custom-list {
-    counter-reset: section;
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-  }
-
-  ol.custom-list li {
-    counter-increment: section;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.75rem;
-  }
-
-  ol.custom-list li::before {
-    content: counter(section) ".";
-    font-weight: bold;
-    color:rgb(13, 17, 253);
-    margin-right: 0.5rem;
-    width: 2rem;
-    text-align: right;
-  }
-
-  ol.custom-list i {
-    margin-right: 0.5rem;
-    color:rgb(4, 27, 235);
-    min-width: 1.2rem;
-    text-align: center;
-    margin-top: 0.15rem;
-  }
-</style>
-
-<div class="section-wrapper">
-
-  <h1>Study Abroad Guidance</h1>
-
-  <p>
-    For students aspiring to study overseas, we offer expert guidance on:
-  </p>
-
-  <ol class="custom-list">
-    <li><i class="fas fa-university"></i>University selection & application assistance</li>
-    <li><i class="fas fa-hand-holding-usd"></i>Scholarship & financial aid opportunities</li>
-    <li><i class="fas fa-file-signature"></i>Personal statement & essay writing support</li>
-    <li><i class="fas fa-passport"></i>Visa & admission interview preparation</li>
-    <li><i class="fas fa-plane-departure"></i>Pre-departure orientation and cultural adaptation tips</li>
-  </ol>
-
-  <p>
-    Our goal is to make studying abroad a smooth and successful journey for students.
-  </p>
-
-</div>
-
-            </div>
-            
-        </div>
-    </div>
-    <!-- Testimonial End -->
-        
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Tutoring</h3>
+                    <p>We offer structured and engaging academic support for students across various grades and subjects. Our tutors provide one-on-one or small group sessions, ensuring personalized attention to:</p>
+                    <ul class="mission-list">
+                        <li>Strengthen subject knowledge and foundational concepts</li>
+                        <li>Improve problem-solving and analytical skills</li>
+                        <li>Develop effective study habits and learning strategies</li>
+                        <li>Enhance critical thinking and application-based learning</li>
+                    </ul>
                     
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                   
+                    <h4 class="mt-4">Subjects We Cover:</h4>
+                    <div class="mt-3">
+                        <span class="subject-badge">Mathematics</span>
+                        <span class="subject-badge">Physics</span>
+                        <span class="subject-badge">Chemistry</span>
+                        <span class="subject-badge">Biology</span>
+                        <span class="subject-badge">English</span>
+                        <span class="subject-badge">Business Studies</span>
+                        <span class="subject-badge">Computer Science</span>
+                    </div>
                 </div>
-             
-                
-                
             </div>
         </div>
         
-    </div>
-    <!-- Footer End -->
+        <!-- Exam Preparation -->
+        <div class="row mb-5 align-items-center flex-md-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="img-container">
+                    <img src="img/success.png" alt="Exam Preparation" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>International Exam Preparation</h3>
+                    <p>We specialize in preparing students for internationally recognized examinations with our proven strategies:</p>
+                    <ul class="mission-list">
+                        <li>IGCSE, O-Level & A-Level comprehensive preparation</li>
+                        <li>SAT, ACT university admission test coaching</li>
+                        <li>IELTS, TOEFL English language proficiency training</li>
+                        <li>GMAT, GRE graduate-level exam preparation</li>
+                    </ul>
+                    <p class="mt-3">Our approach includes past paper practice, time management strategies, and personalized study plans to maximize student performance.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skills Development -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="img-container">
+                    <img src="img/skilldev.jpeg" alt="Skills Development" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Skills Development</h3>
+                    <p>Beyond academics, we equip students with essential skills for lifelong success:</p>
+                    <ul class="mission-list">
+                        <li>Public Speaking & Communication - Confidence-building for effective presentations</li>
+                        <li>Creative & Academic Writing - Enhancing writing skills for all purposes</li>
+                        <li>Coding & Digital Literacy - Preparing for a technology-driven world</li>
+                        <li>Critical Thinking & Problem-Solving - Developing analytical reasoning</li>
+                        <li>Personal Development & Leadership - Building self-confidence and leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Personalized Learning -->
+        <div class="row mb-5 align-items-center flex-md-row-reverse">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="img-container">
+                    <img src="img/personalized.jpeg" alt="Personalized Learning" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Personalized Learning & Support</h3>
+                    <p>We provide tailored educational solutions for diverse learning needs:</p>
+                    <ul class="mission-list">
+                        <li>Customized Learning Plans for all ability levels</li>
+                        <li>Remedial Classes to meet international benchmarks</li>
+                        <li>Gifted & Talented Programs for high achievers</li>
+                        <li>Special Needs Education with individualized approaches</li>
+                    </ul>
+                    <p class="mt-3">Our qualified educators create inclusive, supportive environments where every student can thrive at their own pace.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Study Abroad -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="img-container">
+                    <img src="img/Study Abroad Tips.jpeg" alt="Study Abroad Guidance" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Study Abroad Guidance</h3>
+                    <p>For students aspiring to study overseas, we offer comprehensive support:</p>
+                    <ul class="mission-list">
+                        <li>University selection & application strategy</li>
+                        <li>Scholarship & financial aid guidance</li>
+                        <li>Personal statement & essay writing support</li>
+                        <li>Visa & admission interview preparation</li>
+                        <li>Pre-departure cultural orientation</li>
+                    </ul>
+                    <p class="mt-3">We make the international education journey smooth and successful for students and families.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Call to Action -->
+    <section class="navy-bg py-5">
+        <div class="container text-center">
+            <h2 class="text-white mb-4">Ready to Transform Your Learning Experience?</h2>
+            <p class="text-white mb-4">Join Knowledge Nest today and discover the difference personalized education can make.</p>
+            <a href="contact.html" class="btn btn-primary btn-lg px-5 py-3">Get Started Now</a>
+        </div>
+    </section>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Knowledge Nest. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="about.html" class="me-3">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

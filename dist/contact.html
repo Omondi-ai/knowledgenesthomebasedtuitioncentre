@@ -14,143 +14,343 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --navy-blue: #0a2540;
+            --pink-accent: #E83F8E;
+            --light-pink: #FFB8D1;
+            --dark-text: #2d3748;
+            --light-text: #f8f9fa;
+            --off-white: #f7fafc;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.7;
+            background-color: var(--off-white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy-blue);
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+        }
+        
+        .navy-bg {
+            background-color: var(--navy-blue);
+            color: var(--light-text);
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.85)), url('img/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--light-pink);
+        }
+        
+        .breadcrumb-item.active {
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .contact-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: 100%;
+            background: white;
+            margin-bottom: 30px;
+            border: none;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--pink-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(232, 63, 142, 0.1);
+            color: var(--pink-accent);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info div {
+            flex: 1;
+        }
+        
+        .contact-info h5 {
+            margin-bottom: 5px;
+            color: var(--navy-blue);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--pink-accent);
+            border-color: var(--pink-accent);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #D12E7B;
+            border-color: #D12E7B;
+        }
+        
+        .divider {
+            width: 70px;
+            height: 4px;
+            background: var(--pink-accent);
+            margin: 25px 0;
+            opacity: 0.8;
+        }
+        
+        .navbar {
+            background-color: var(--navy-blue) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand h2 {
+            font-size: 1.8rem;
+        }
+        
+        footer {
+            background-color: var(--navy-blue);
+            padding: 40px 0;
+        }
+        
+        footer a {
+            color: var(--light-pink) !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white !important;
+            text-decoration: underline;
+        }
+        
+        .form-control:focus {
+            border-color: var(--pink-accent);
+            box-shadow: 0 0 0 0.2rem rgba(232, 63, 142, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2>
-            <img src="img/KN LOGOV1.png" alt="Icon" style="height: 24px; vertical-align: middle; margin-right: 8px;">
-            Knowledge Nest
-            </h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Our Services</a>
-                <a href="resources.html" class="nav-item nav-link">Resources</a>
-                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <h2 class="m-0 ms-2 text-white">
+                    <img src="img/KN LOGOV1.png" alt="Logo" style="height: 36px; margin-right: 12px;">
+                    Knowledge Nest
+                </h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-link px-3">Home</a>
+                    <a href="about.html" class="nav-link px-3">About Us</a>
+                    <a href="courses.html" class="nav-link px-3">Our Services</a>
+                    <a href="resources.html" class="nav-link px-3">Resources</a>
+                    <a href="contact.html" class="nav-link active px-3">Contact Us</a>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary ms-lg-3">Join Now</a>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Contact</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Resources</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+    <!-- Header -->
+    <header class="page-header text-white">
+        <div class="container">
+            <h1 class="display-4 mb-4">Contact Us</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="resources.html">Resources</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
-    <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h1 class="mb-5">Contact Us For Any Query</h1>
+    <!-- Contact Section -->
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h6 class="text-primary">GET IN TOUCH</h6>
+            <h2 class="mb-3">We'd Love to Hear From You</h2>
+            <div class="divider mx-auto"></div>
+            <p>Have questions about our programs or services? Reach out to us through any of the following channels.</p>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div style="background-color:rgb(255, 0, 234); padding: 20px; border-radius: 8px;">
-                    <div style="font-family: Arial, sans-serif; display: flex; flex-direction: column; gap: 10px;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-phone-alt" style="color: blue; font-size: 20px;"></i>
-                            <span style="font-size: 16px;">Mobile phone number: <strong>0706580794</strong></span>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5>Phone</h5>
+                            <p>0706 580 794</p>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-envelope" style="color: pink; font-size: 20px;"></i>
-                            <span style="font-size: 16px;">Email address: <strong>sallymutunga67@gmail.com</strong></span>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>Email</h5>
+                            <p>sallymutunga67@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h5>Hours</h5>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            <p>Saturday: 9:00 AM - 2:00 PM</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Add Font Awesome CDN for the icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <!-- Contact Start -->
-  
-
-
-<!-- Add Font Awesome CDN for the icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
+            
+            <div class="col-lg-6 mb-4">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
         
-    </div>
-</div>
-
-    </div>
-</div>
-
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="contact-card text-center">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>We operate as a home-based tuition center. After contacting us, we'll provide you with our specific location details based on your needs.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiU5-g2Ds1URViQa1D-8DMyh5GXS9vIJFHAiVHBo74mranJg/viewform?usp=header" class="btn btn-primary mt-3">
+                        <i class="fas fa-user-plus me-2"></i>Register for Classes
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Contact End -->
+    </section>
 
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Knowledge Nest. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="about.html" class="me-3">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Footer Start -->
-    
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
